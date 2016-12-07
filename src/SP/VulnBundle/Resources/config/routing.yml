@@ -1,3 +1,13 @@
 index:
     path:     /
     defaults: { _controller: VulnBundle:Login:index }
+
+show_all:
+    path:     /show/{userId}
+    defaults: { _controller: VulnBundle:Account:show }
+    requirements:
+      userId: \d+
+
+new:
+    path:     /new
+    defaults: { _controller: VulnBundle:Account:new }
