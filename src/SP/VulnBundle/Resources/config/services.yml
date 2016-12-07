@@ -1,0 +1,4 @@
+services:
+#    vuln.example:
+#        class: SP\VulnBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

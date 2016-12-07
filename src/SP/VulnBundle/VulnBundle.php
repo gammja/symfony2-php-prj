@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace SP\VulnBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class VulnBundle extends Bundle
 {
 }

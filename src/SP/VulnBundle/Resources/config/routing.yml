@@ -1,0 +1,3 @@
+vuln_homepage:
+    path:     /
+    defaults: { _controller: VulnBundle:Default:index }
