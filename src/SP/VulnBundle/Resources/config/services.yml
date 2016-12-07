@@ -1,4 +1,5 @@
 services:
-#    vuln.example:
-#        class: SP\VulnBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+  vuln.twig.extension:
+    class: SP\VulnBundle\Twig\Extension\VulnBundleExtension
+    tags:
+      - {name: twig.extension}
