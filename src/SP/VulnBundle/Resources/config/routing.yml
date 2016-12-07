@@ -1,3 +1,3 @@
-vuln_homepage:
+index:
     path:     /
-    defaults: { _controller: VulnBundle:Default:index }
+    defaults: { _controller: VulnBundle:Login:index }
