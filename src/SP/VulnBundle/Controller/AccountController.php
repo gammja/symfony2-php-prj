@@ -27,7 +27,6 @@ class AccountController extends Controller
         $user = $em->getRepository('VulnBundle:User')->find($userId);
 
         if ($form->isSubmitted() && $form->isValid()){
-
             $account = $form->getData();
             $em->persist($account);
 

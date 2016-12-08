@@ -13,6 +13,12 @@ class LoginController extends Controller
         ));
     }
 
-
-
+    public function logoutAction()
+    {
+        /*session_start();
+        unset($_SESSION);
+        session_destroy();
+        header('Location: login.php');*/
+        return $this->redirect($this->generateUrl('index'));
+    }
 }

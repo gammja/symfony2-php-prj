@@ -1,1 +1,100 @@
 {% extends 'VulnBundle:User:layout.html.twig' %}
+
+{% block body %}
+    <div id="create-new-user">
+    <h2 class="text-center">Create new user</h2>
+    {{ form_start(form, {'action': path('user_new')}) }}
+
+    <!--            <div class="alert alert-error">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Some field is invalid.</strong> Details.
+        </div>-->
+    {{ form_errors(form, {'attr': {'class': 'alert alert-error'}}) }}
+
+    {{ form_row(form.userName,
+    {
+        'requred': 'true',
+        'label': 'User Name:',
+        'attr': {
+            'id': 'username',
+            'name': 'username',
+            'class': 'input-block-level',
+            'placeholder': 'User Name'
+        }
+    }) }}
+    {{ form_row(form.firstName,
+    {
+        'label': 'First Name:',
+        'attr': {
+            'id': 'first-name',
+            'name': 'first-name',
+            'class': 'input-block-level',
+            'placeholder': 'First Name'
+        }
+    }) }}
+    {{ form_row(form.lastName,
+    {
+        'label': 'Last Name:',
+        'attr': {
+            'id': 'last-name',
+            'name': 'last-name',
+            'class': 'input-block-level',
+            'placeholder': 'Last Name'
+        }
+    }) }}
+    {{ form_row(form.email,
+    {
+        'label': 'Email:',
+        'attr': {
+            'id': 'email',
+            'name': 'email',
+            'class': 'input-block-level',
+            'placeholder': 'Email'
+        }
+    }) }}
+    {{ form_row(form.description,
+    {
+        'requred': 'true',
+        'label': 'Description:',
+        'attr': {
+            'id': 'description',
+            'name': 'description',
+            'row': 6,
+            'class': 'input-block-level',
+            'placeholder': 'Description'
+        }
+    }) }}
+    {#role#}
+    {#<label for="role">Role:</label>#}
+    {#                <select name="role" id="role">
+                        <?php
+                    include('connect.php');
+
+                    $query = "SELECT id, name, is_default FROM `php-prj`.roles";
+                    $res = mysqli_query($con, $query);
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        echo "<option value='" . $row['id'] . "'" . ($row['is_default'] ? " selected" : "") . ">"
+                        . strtoupper($row['name']) . "</option>";
+                        }
+                        ?>
+                    </select>#}
+    {{ form_row(form.password,
+    {
+        'requred': 'true',
+        'label': 'Password:',
+        'attr': {
+            'id': 'password',
+            'name': 'password',
+            'class': 'input-block-level',
+            'placeholder': 'Password'
+        }
+    }) }}
+    {{ form_row(form.submit,
+    {
+        'label': 'Create',
+        'attr': {
+            'class': 'btn btn-large btn-block btn-primary'
+        }
+    }) }}
+    {{ form_rest(form) }}
+{% endblock %}

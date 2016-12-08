@@ -8,7 +8,9 @@
 
 namespace SP\VulnBundle\Controller;
 
+use SP\VulnBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
 {
@@ -24,10 +26,26 @@ class UserController extends Controller
         ));
     }
 
-    public function newAction()
+    public function newAction(Request $request)
     {
+        $form = $this->createForm(UserType::class);
+        $form->handleRequest($request);
+
+        $em = $this->getDoctrine()->getManager();
+        if ($form->isSubmitted()){
+            if ($form->isValid()) {
+                $newUser = $form->getData();
+                $em->persist($newUser);
+                $em->flush();
+                //show success
+            } else {
+                // show error
+            }
+            return $this->redirect($this->generateUrl('user_show'));
+        }
+
         return $this->render('VulnBundle:User:new.html.twig', array(
-            // ...
+            'form' => $form->createView(),
         ));
     }
 }

@@ -3,28 +3,29 @@ index:
     defaults: { _controller: VulnBundle:Login:index }
 
 account_show:
-    path:     /show/{userId}
+    path:     /account/{userId}
     defaults: { _controller: VulnBundle:Account:show }
     requirements:
       userId: \d+
 
 account_new:
-    path:     /new/{userId}
+    path:     /account/new/{userId}
     defaults: { _controller: VulnBundle:Account:new }
     requirements:
       userId: \d+
 
 transaction_show_all:
-    path:     /show2/
+    path:     /show
     defaults: { _controller: VulnBundle:Transaction:showAll }
     requirements:
       userId: \d+
 
 transaction_show:
-    path:     /show2/{accountId}
+    path:     /payment/show/{accountId}
     defaults: { _controller: VulnBundle:Transaction:show }
     requirements:
       userId: \d+
+      accountId: \d+
 
 user_show:
     path: /user

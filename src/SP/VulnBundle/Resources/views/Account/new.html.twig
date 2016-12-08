@@ -4,26 +4,24 @@
     <div id="create-new-account">
     <h2 class="text-center">Create new account</h2>
 
-    {{ form_start(form, {'action': path('account_new', {'userId': user.id}), 'method': 'POST'}) }}
+    {{ form_start(form, {'action': path('account_new', {'userId': user.id})}) }}
 
     {{ form_errors(form, {'attr': {'class': 'alert alert-error'}}) }}
 
 {#
-    'pattern': '\d*',
     'maxlength': '16',
 #}
-
-
     {{ form_row(form.accountNumber, {'requred': 'true', 'attr': {
         'name': 'account',
         'class': 'input-block-level',
+        'pattern': '\d*',
         'title': 'Please specify exactly 16 digits. All numerical, no spaces or dashes.',
         'placeholder': 'Primary Account Number*'
     } }) }}
     {{ form_row(form.description, {'requred': 'true', 'attr': {
         'name': 'description',
         'class': 'input-block-level',
-        'rows': '6',
+        'rows': 6,
         'placeholder': 'Description'
     }}) }}
 
