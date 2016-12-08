@@ -10,4 +10,10 @@ namespace SP\VulnBundle\Entity\Repository;
  */
 class PaymentRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByAccount($accountId)
+    {
+        return $this->findBy(array(
+           'fromAccount' => $accountId
+        ));
+    }
 }

@@ -58,6 +58,13 @@ class User
      *
      * @return integer
      */
+
+    /**
+     * @ORM\OneToMany(targetEntity="Account", mappedBy="user")
+     *
+     */
+    protected $accounts;
+
     public function getId()
     {
         return $this->id;
@@ -205,5 +212,48 @@ class User
     public function getLastName()
     {
         return $this->lastName;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->accounts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add account
+     *
+     * @param \SP\VulnBundle\Entity\Account $account
+     *
+     * @return User
+     */
+    public function addAccount(\SP\VulnBundle\Entity\Account $account)
+    {
+        $account->setUser($this);
+        $this->accounts[] = $account;
+    
+        return $this;
+    }
+
+    /**
+     * Remove account
+     *
+     * @param \SP\VulnBundle\Entity\Account $account
+     */
+    public function removeAccount(\SP\VulnBundle\Entity\Account $account)
+    {
+        $account->setUser(null);
+        $this->accounts->removeElement($account);
+    }
+
+    /**
+     * Get accounts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAccounts()
+    {
+        return $this->accounts;
     }
 }

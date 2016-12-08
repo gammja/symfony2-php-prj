@@ -35,7 +35,8 @@ class Account
 
     /**
      * @var User
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="accounts")
+     *
      */
     protected $user;
 

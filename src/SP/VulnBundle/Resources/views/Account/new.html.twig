@@ -1,7 +1,35 @@
-{% extends "::base.html.twig" %}
-
-{% block title %}VulnBundle:Account:new{% endblock %}
+{% extends 'VulnBundle:Account:layout.html.twig' %}
 
 {% block body %}
-<h1>Welcome to the Account:new page</h1>
+    <div id="create-new-account">
+    <h2 class="text-center">Create new account</h2>
+
+    {{ form_start(form, {'action': path('account_new', {'userId': user.id}), 'method': 'POST'}) }}
+
+    {{ form_errors(form, {'attr': {'class': 'alert alert-error'}}) }}
+
+{#
+    'pattern': '\d*',
+    'maxlength': '16',
+#}
+
+
+    {{ form_row(form.accountNumber, {'requred': 'true', 'attr': {
+        'name': 'account',
+        'class': 'input-block-level',
+        'title': 'Please specify exactly 16 digits. All numerical, no spaces or dashes.',
+        'placeholder': 'Primary Account Number*'
+    } }) }}
+    {{ form_row(form.description, {'requred': 'true', 'attr': {
+        'name': 'description',
+        'class': 'input-block-level',
+        'rows': '6',
+        'placeholder': 'Description'
+    }}) }}
+
+    {{ form_row(form.submit, { 'label': 'Create', 'attr': {
+        'class': 'btn btn-large btn-block btn-primary'
+    } }) }}
+
+    {{ form_rest(form) }}
 {% endblock %}

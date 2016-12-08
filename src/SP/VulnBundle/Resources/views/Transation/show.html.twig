@@ -1,0 +1,33 @@
+{% extends 'VulnBundle:Transation:layout.html.twig' %}
+
+{% block body %}
+    <h1>Transactions</h1>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Account</th>
+            <th>Payment description</th>
+            <th>Amount</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for payment in payments %}
+            <tr>
+                <td>
+                    <a href={{ path('account_show', {'userId': payment.fromAccount.user.id}) }}>
+                        {{ payment.fromAccount.accountNumber|mask }}
+                    </a>
+                </td>
+                <td>{{ payment.description }}</td>
+                <td>{{ payment.amount }}</td>
+                <td>{{ payment.toAccount.accountNumber }}</td>
+                <td>{{ payment.paymentTime|date('d.m.Y') }}</td>
+                <td>{{ payment.status == 1 ? "Done" : "In progress" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
