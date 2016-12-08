@@ -1,0 +1,43 @@
+{% extends 'VulnBundle:User:layout.html.twig' %}
+
+{% block body %}
+    <h1>Users</h1>
+    {#    <?php if (isset($_SESSION['newUserCreated'])) {
+            if ($_SESSION['newUserCreated']) { ?>
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Well done!</strong> New user has been successfully created.
+        </div>
+        <?php } else { ?>
+        <div class="alert alert-error">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> New user hasn't been created.
+        </div>
+        <?php }
+            unset($_SESSION['newUserCreated']);
+        } ?>#}
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('account_show', {'userId': user.id}) }}">{{ user.username }}</a></td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>NONE</td>
+                {#<td>{{ user.role|upper }}</td>#}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

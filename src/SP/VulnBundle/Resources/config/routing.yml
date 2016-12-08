@@ -25,3 +25,13 @@ transaction_show:
     defaults: { _controller: VulnBundle:Transaction:show }
     requirements:
       userId: \d+
+
+user_show:
+    path: /user
+    defaults: { _controller: VulnBundle:User:show }
+
+user_new:
+    path: /user/new
+    defaults: { _controller: VulnBundle:User:new }
+    requirements:
+      userId: \d+
