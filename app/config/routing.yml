@@ -1,3 +1,6 @@
 vuln:
     resource: "@VulnBundle/Resources/config/routing.yml"
     prefix:   /
+
+logout:
+    path: /logout

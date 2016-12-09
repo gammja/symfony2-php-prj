@@ -11,7 +11,19 @@ class LoginController extends Controller
 {
     public function loginAction(Request $request)
     {
-        $form = $this->createForm(LoginType::class);
+        $authenticationUtils = $this->get('security.authentication_utils');
+
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('VulnBundle:Login:login.html.twig', array(
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ));
+
+/*        $user = new User();
+        $user->setUserName($authenticationUtils->getLastUsername());
+        $form = $this->createForm(LoginType::class, $user);
         $form->handleRequest($request);
 
         $flashBag = $this->get('session')->getFlashBag();
@@ -34,8 +46,9 @@ class LoginController extends Controller
         }
 
         return $this->render('VulnBundle:Login:login.html.twig', array(
-            'form' => $form->createView()
-        ));
+            'error' => $authenticationUtils->getLastAuthenticationError(),
+            'form' => $form->createView(),
+        ));*/
     }
 
     private

@@ -2,9 +2,9 @@ index:
     path:     /
     defaults: { _controller: VulnBundle:Login:login }
 
-logout:
-    path:    /
-    defaults: { _controller: VulnBundle:Login:logout }
+login:
+    path:     /login
+    defaults: { _controller: VulnBundle:Login:login }
 
 account_show:
     path:     /account/{userId}
