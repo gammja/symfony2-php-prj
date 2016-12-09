@@ -23,20 +23,28 @@ class AccountController extends Controller
         $form = $this->createForm(AccountType::class);
         $form->handleRequest($request);
 
+        $flashBag = $this->get('session')->getFlashBag();
+
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('VulnBundle:User')->find($userId);
 
-        if ($form->isSubmitted() && $form->isValid()){
-            $account = $form->getData();
-            $em->persist($account);
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $account = $form->getData();
+                $em->persist($account);
 
-            $user->addAccount($account);
-            $em->flush();
+                $user->addAccount($account);
+                $em->flush();
 
-            $url = $this->generateUrl("account_show", array(
-                'userId' => $user->getId()
-            ));
-            return $this->redirect($url);
+                $flashBag->add('success', 'Well done! New account has been successfully created.');
+
+                $url = $this->generateUrl("account_show", array(
+                    'userId' => $user->getId()
+                ));
+                return $this->redirect($url);
+            } else {
+                $flashBag->add('error', 'Error! New account hasn\'t been created.');
+            }
         }
 
         return $this->render('VulnBundle:Account:new.html.twig', array(

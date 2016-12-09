@@ -10,11 +10,11 @@
 
 {#
     'maxlength': '16',
+    'pattern': '\d*',
 #}
     {{ form_row(form.accountNumber, {'requred': 'true', 'attr': {
         'name': 'account',
         'class': 'input-block-level',
-        'pattern': '\d*',
         'title': 'Please specify exactly 16 digits. All numerical, no spaces or dashes.',
         'placeholder': 'Primary Account Number*'
     } }) }}

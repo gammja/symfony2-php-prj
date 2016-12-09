@@ -8,6 +8,7 @@
 
 namespace SP\VulnBundle\Controller;
 
+use SP\VulnBundle\Entity\User;
 use SP\VulnBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,11 @@ class UserController extends Controller
             ->getRepository('VulnBundle:User')
             ->findAll();
 
+        $user = new User();
+        $user->setUserName('admin');
+
         return $this->render('VulnBundle:User:show.html.twig', array(
+            'user' => $user,
             'users' => $users,
         ));
     }
@@ -33,13 +38,15 @@ class UserController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         if ($form->isSubmitted()){
+            $flashBag = $this->get('session')->getFlashBag();
             if ($form->isValid()) {
                 $newUser = $form->getData();
                 $em->persist($newUser);
                 $em->flush();
-                //show success
+
+                $flashBag->add('success', 'Well done! New user has been successfully created.');
             } else {
-                // show error
+                $flashBag->add('error', 'Error! New user hasn\'t been created.');
             }
             return $this->redirect($this->generateUrl('user_show'));
         }

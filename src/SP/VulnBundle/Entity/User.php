@@ -70,6 +70,8 @@ class User
         return $this->id;
     }
 
+    protected $role;
+
     /**
      * Set userName
      *
@@ -80,7 +82,7 @@ class User
     public function setUserName($userName)
     {
         $this->userName = $userName;
-    
+
         return $this;
     }
 
@@ -104,7 +106,7 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
@@ -128,7 +130,7 @@ class User
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
@@ -152,7 +154,7 @@ class User
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
@@ -176,7 +178,7 @@ class User
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
-    
+
         return $this;
     }
 
@@ -200,7 +202,7 @@ class User
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
-    
+
         return $this;
     }
 
@@ -213,6 +215,7 @@ class User
     {
         return $this->lastName;
     }
+
     /**
      * Constructor
      */
@@ -232,7 +235,7 @@ class User
     {
         $account->setUser($this);
         $this->accounts[] = $account;
-    
+
         return $this;
     }
 
@@ -255,5 +258,13 @@ class User
     public function getAccounts()
     {
         return $this->accounts;
+    }
+
+    public function getRole()
+    {
+        return $this->userName == 'admin' ?
+            'ADMIN' :
+            'USER';
+//        return $this->role;
     }
 }
