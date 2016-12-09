@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a69dd457-90c0-447b-b1ac-daa2dc6e8f8d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161209120926.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Controller/LoginController.php" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Controller/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/views/Login/login.html.twig" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/views/Login/login.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/views/layout.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -705,7 +697,7 @@
       <workItem from="1481189088250" duration="14322000" />
       <workItem from="1481263374331" duration="7410000" />
       <workItem from="1481273449390" duration="1647000" />
-      <workItem from="1481275317507" duration="13354000" />
+      <workItem from="1481275317507" duration="13411000" />
     </task>
     <task id="LOCAL-00001" summary="AccountController and TransactionController in progress">
       <created>1481201022057</created>
@@ -735,11 +727,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481281746575</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="symfony security in progress">
+      <created>1481290590751</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1481290590751</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47338000" />
+    <option name="totallyTimeSpent" value="47395000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -784,7 +783,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AccountController and TransactionController in progress" />
     <MESSAGE value="UserController in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="UserController in progress" />
+    <MESSAGE value="symfony security in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="symfony security in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
