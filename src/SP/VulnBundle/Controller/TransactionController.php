@@ -14,14 +14,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class TransactionController extends Controller
 {
-    public function showAction($accountId)
+    public function showAction($accountNumber)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $account = $em->getRepository('VulnBundle:Account')->find($accountId);
-        $payments = $em->getRepository('VulnBundle:Payment')->findByAccount($accountId);
+        $account = $em->getRepository('VulnBundle:Account')->findOneByAccountNumber($accountNumber);
+        $payments = $em->getRepository('VulnBundle:Payment')->findByAccount($account->getId());
 
         return $this->render('VulnBundle:Transation:show.html.twig', array(
+            'user' => $this->getUser(),
             'account' => $account,
             'payments' => $payments,
         ));
@@ -29,17 +30,14 @@ class TransactionController extends Controller
 
     public function showAllAction()
     {
-        $userId = 4;
-        $em = $this->getDoctrine()->getManager();
-
-//        $account = $em->getRepository('VulnBundle:Account')->find($accountId);
-//        $payments = $em->getRepository('VulnBundle:Payment')->findByAccount($accountId);
-
-        $account = new Account();
-        $payments = array();
+        $user = $this->getUser();
+        $payments = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('VulnBundle:Payment')
+            ->findByUser($user);
 
         return $this->render('VulnBundle:Transation:show.html.twig', array(
-            'account' => $account,
+            'user' => $user,
             'payments' => $payments,
         ));
     }

@@ -11,7 +11,6 @@ security:
         in_db:
             entity:
                 class: VulnBundle:User
-                property: userName
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

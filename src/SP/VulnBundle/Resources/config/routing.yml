@@ -1,35 +1,28 @@
 index:
     path:     /
-    defaults: { _controller: VulnBundle:Security:login }
+    defaults: { _controller: VulnBundle:Default:index }
 
 login:
     path:     /login
     defaults: { _controller: VulnBundle:Security:login }
 
 account_show:
-    path:     /account/{userId}
+    path:     /account
     defaults: { _controller: VulnBundle:Account:show }
-    requirements:
-      userId: \d+
 
 account_new:
-    path:     /account/new/{userId}
+    path:     /account/new
     defaults: { _controller: VulnBundle:Account:new }
-    requirements:
-      userId: \d+
 
 transaction_show_all:
-    path:     /show
+    path:     /payment
     defaults: { _controller: VulnBundle:Transaction:showAll }
-    requirements:
-      userId: \d+
 
 transaction_show:
-    path:     /payment/show/{accountId}
+    path:     /payment/{accountNumber}
     defaults: { _controller: VulnBundle:Transaction:show }
     requirements:
-      userId: \d+
-      accountId: \d+
+      accountNumber: \d+
 
 user_show:
     path: /user

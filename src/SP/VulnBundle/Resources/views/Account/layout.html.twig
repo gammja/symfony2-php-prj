@@ -2,7 +2,7 @@
 
 {% block navbar %}
     <ul class="nav pull-left">
-        <li><a href="{{ path('account_show', {'userId': user.id}) }}">My Accounts</a></li>
+        <li><a href="{{ path('account_show') }}">My Accounts</a></li>
         <li><a href="{{ path('transaction_show_all') }}">My Transactions</a></li>
     </ul>
     {{ parent() }}

@@ -2,6 +2,8 @@
 
 namespace SP\VulnBundle\Entity\Repository;
 
+use SP\VulnBundle\Entity\User;
+
 /**
  * PaymentRepository
  *
@@ -15,5 +17,17 @@ class PaymentRepository extends \Doctrine\ORM\EntityRepository
         return $this->findBy(array(
            'fromAccount' => $accountId
         ));
+    }
+
+    public function findByUser(User $user)
+    {
+        return null;
+//        $accounts = $user->getAccounts();
+//
+//        return $this->createQueryBuilder('p')
+//            ->addSelect('p')
+//            ->innerJoin()
+//            ->where('p.fromAccount IN')
+
     }
 }

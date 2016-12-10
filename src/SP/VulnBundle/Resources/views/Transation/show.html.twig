@@ -16,11 +16,7 @@
         <tbody>
         {% for payment in payments %}
             <tr>
-                <td>
-                    <a href={{ path('account_show', {'userId': payment.fromAccount.user.id}) }}>
-                        {{ payment.fromAccount.accountNumber|mask }}
-                    </a>
-                </td>
+                <td><a href={{ path('account_show') }}>{{ payment.fromAccount.accountNumber|mask }}</a></td>
                 <td>{{ payment.description }}</td>
                 <td>{{ payment.amount }}</td>
                 <td>{{ payment.toAccount.accountNumber }}</td>

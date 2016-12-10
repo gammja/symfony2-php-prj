@@ -8,17 +8,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AccountController extends Controller
 {
-    public function showAction($userId)
+    public function showAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('VulnBundle:User')->find($userId);
-
         return $this->render('VulnBundle:Account:show.html.twig', array(
-            'user' => $user,
+            'user' => $this->getUser(),
         ));
     }
 
-    public function newAction(Request $request, $userId)
+    public function newAction(Request $request)
     {
         $form = $this->createForm(AccountType::class);
         $form->handleRequest($request);
@@ -38,10 +35,7 @@ class AccountController extends Controller
 
                 $flashBag->add('success', 'Well done! New account has been successfully created.');
 
-                $url = $this->generateUrl("account_show", array(
-                    'userId' => $user->getId()
-                ));
-                return $this->redirect($url);
+                return $this->redirect($this->generateUrl("account_show"));
             } else {
                 $flashBag->add('error', 'Error! New account hasn\'t been created.');
             }
