@@ -1,10 +1,10 @@
 index:
     path:     /
-    defaults: { _controller: VulnBundle:Login:login }
+    defaults: { _controller: VulnBundle:Security:login }
 
 login:
     path:     /login
-    defaults: { _controller: VulnBundle:Login:login }
+    defaults: { _controller: VulnBundle:Security:login }
 
 account_show:
     path:     /account/{userId}

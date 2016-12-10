@@ -2,19 +2,14 @@
 # http://symfony.com/doc/current/security.html
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        SP\VulnBundle\Entity\User: plaintext
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory:
-                users:
-                    admin:
-                        password: admin
-                        roles: ROLE_ADMIN
-                    test:
-                        password: test
-                        roles: ROLE_USER
+        in_db:
+            entity:
+                class: VulnBundle:User
+                property: userName
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -26,10 +21,6 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-#        login:
-#          pattern: ^/
-#          security: false
-
         secured_area:
             pattern: ^/
             form_login:
@@ -38,8 +29,9 @@ security:
             logout:
                 path: /logout
                 target: /
-#            anonymous: ~
-            http_basic: ~
+            anonymous: ~
+            provider: in_db
+#            http_basic: ~
 
     access_control:
             - { path: ^/login,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
