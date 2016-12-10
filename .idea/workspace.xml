@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a69dd457-90c0-447b-b1ac-daa2dc6e8f8d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Controller/SecurityController.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Controller/LoginController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Form/LoginType.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/views/Login/login.html.twig" afterPath="$PROJECT_DIR$/src/SP/VulnBundle/Resources/views/Login/login.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -135,8 +131,8 @@
       <file leaf-file-name="security.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/security.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+            <state relative-caret-position="544">
+              <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -191,6 +187,7 @@
       <command text="s debug:config " />
       <command text="s security:check " />
       <command text="s cache:clear" />
+      <command text="s security:encode-password " />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -931,7 +928,7 @@
       <workItem from="1481263374331" duration="7410000" />
       <workItem from="1481273449390" duration="1647000" />
       <workItem from="1481275317507" duration="13411000" />
-      <workItem from="1481368753162" duration="8024000" />
+      <workItem from="1481368753162" duration="8345000" />
     </task>
     <task id="LOCAL-00001" summary="AccountController and TransactionController in progress">
       <created>1481201022057</created>
@@ -968,11 +965,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481290590751</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="integrations with security component - in progress">
+      <created>1481377060346</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1481377060346</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55419000" />
+    <option name="totallyTimeSpent" value="55740000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1018,7 +1022,8 @@
     <MESSAGE value="AccountController and TransactionController in progress" />
     <MESSAGE value="UserController in progress" />
     <MESSAGE value="symfony security in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="symfony security in progress" />
+    <MESSAGE value="integrations with security component - in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="integrations with security component - in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1388,8 +1393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        <state relative-caret-position="544">
+          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
           <folding />
         </state>
       </provider>

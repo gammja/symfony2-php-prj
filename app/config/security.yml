@@ -3,6 +3,8 @@
 security:
     encoders:
         SP\VulnBundle\Entity\User: plaintext
+#            algorithm: bcrypt
+#            cost: 12
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
@@ -34,5 +36,5 @@ security:
 #            http_basic: ~
 
     access_control:
-            - { path: ^/login,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/,          roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/login,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/,          roles: IS_AUTHENTICATED_FULLY }
