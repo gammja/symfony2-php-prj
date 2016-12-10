@@ -26,7 +26,7 @@ class AccountController extends Controller
         $flashBag = $this->get('session')->getFlashBag();
 
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('VulnBundle:User')->find($userId);
+        $user = $this->getUser();
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {

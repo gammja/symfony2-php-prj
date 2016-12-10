@@ -29,7 +29,8 @@ class UserFixture extends AbstractFixture implements OrderedFixtureInterface
             ->setEmail("admin@none.com")
             ->setDescription("description_1")
             ->setFirstName("admin")
-            ->setLastName("admin");
+            ->setLastName("admin")
+            ->setRole("ROLE_ADMIN");
         $manager->persist($user1);
         $this->addReference('user-1', $user1);
 
@@ -39,7 +40,8 @@ class UserFixture extends AbstractFixture implements OrderedFixtureInterface
             ->setEmail("test@none.com")
             ->setDescription("description_2")
             ->setFirstName("test")
-            ->setLastName("test");
+            ->setLastName("test")
+            ->setRole("ROLE_USER");
         $manager->persist($user2);
         $this->addReference('user-2', $user2);
 
@@ -49,7 +51,8 @@ class UserFixture extends AbstractFixture implements OrderedFixtureInterface
             ->setEmail("test2@none.com")
             ->setDescription("description_3")
             ->setFirstName("test2")
-            ->setLastName("test2");
+            ->setLastName("test2")
+            ->setRole("ROLE_USER");
         $manager->persist($user3);
         $this->addReference('user-3', $user3);
 

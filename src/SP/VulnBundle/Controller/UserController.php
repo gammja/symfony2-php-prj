@@ -22,11 +22,8 @@ class UserController extends Controller
             ->getRepository('VulnBundle:User')
             ->findAll();
 
-        $user = new User();
-        $user->setUserName('admin');
-
         return $this->render('VulnBundle:User:show.html.twig', array(
-            'user' => $user,
+            'user' => $this->getUser(),
             'users' => $users,
         ));
     }

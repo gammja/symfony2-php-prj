@@ -55,23 +55,25 @@ class User implements UserInterface, \Serializable
     protected $lastName;
 
     /**
-     * Get id
-     *
-     * @return integer
-     */
-
-    /**
      * @ORM\OneToMany(targetEntity="Account", mappedBy="user")
      *
      */
     protected $accounts;
 
+    /**
+     * @ORM\Column(type="string", length=20, nullable=false)
+     */
+    protected $role;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
-
-    protected $role;
 
     /**
      * Set userName
@@ -261,14 +263,6 @@ class User implements UserInterface, \Serializable
         return $this->accounts;
     }
 
-    public function getRole()
-    {
-        return $this->userName == 'admin' ?
-            'ADMIN' :
-            'USER';
-//        return $this->role;
-    }
-
     /**
      * Returns the roles granted to the user.
      *
@@ -287,7 +281,7 @@ class User implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array($this->role);
     }
 
     /**
@@ -345,5 +339,29 @@ class User implements UserInterface, \Serializable
             $this->password,
 //            $this->salt,
         ) = unserialize($serialized);
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return User
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return str_replace("ROLE_", "", $this->role);
     }
 }
