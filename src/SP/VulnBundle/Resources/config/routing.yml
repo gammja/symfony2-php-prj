@@ -21,8 +21,6 @@ transaction_show_all:
 transaction_show:
     path:     /payment/{accountNumber}
     defaults: { _controller: VulnBundle:Transaction:show }
-    requirements:
-      accountNumber: \d+
 
 user_show:
     path: /user

@@ -3,7 +3,13 @@
 {% block body %}
     <div id="create-new-user">
     <h2 class="text-center">Create new user</h2>
-    {{ form_start(form, {'action': path('user_new')}) }}
+    {{ form_start(form,
+    {
+        'action': path('user_new'),
+        'attr': {
+            'class': 'form-new-user'
+        }
+    }) }}
 
     {% for label, flashes in app.session.flashbag.all %}
         {% for flash in flashes %}

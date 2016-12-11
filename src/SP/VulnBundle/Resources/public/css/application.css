@@ -5,7 +5,8 @@ body {
 }
 
 .form-login,
-.form-new-account {
+.form-new-account,
+.form-new-user {
     max-width: 400px;
     padding: 19px 29px 29px;
     margin: 40px auto 20px;

@@ -9,6 +9,8 @@
 namespace SP\VulnBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @ORM\Entity(repositoryClass="SP\VulnBundle\Entity\Repository\AccountRepository")
@@ -121,4 +123,11 @@ class Account
     {
         return $this->user;
     }
+
+    //server side validation
+//    public static function loadValidatorMetadata(ClassMetadata $metadata)
+//    {
+//        $metadata->addPropertyConstraint('accountNumber', new Assert\NotBlank());
+//        $metadata->addPropertyConstraint('description', new Assert\NotBlank());
+//    }
 }

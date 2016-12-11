@@ -9,6 +9,7 @@
 namespace SP\VulnBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,6 +21,7 @@ class AccountType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('accountNumber', TextType::class);
+//        $builder->add('accountNumber', NumberType::class); // server validation
         $builder->add('description', TextareaType::class);
         $builder->add('submit', SubmitType::class);
     }
