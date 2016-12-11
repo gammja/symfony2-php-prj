@@ -42,6 +42,15 @@ class PaymentFixture extends AbstractFixture implements OrderedFixtureInterface
             ->setStatus(1);
         $manager->persist($payment2);
 
+        $payment2 = new Payment();
+        $payment2->setFromAccount($manager->merge($this->getReference('account-2')))
+            ->setToAccount($manager->merge($this->getReference('account-4')))
+            ->setPaymentTime(new \DateTime("now"))
+            ->setAmount(20)
+            ->setDescription("description_22")
+            ->setStatus(1);
+        $manager->persist($payment2);
+
         $payment3 = new Payment();
         $payment3->setFromAccount($manager->merge($this->getReference('account-4')))
             ->setToAccount($manager->merge($this->getReference('account-2')))
@@ -75,6 +84,24 @@ class PaymentFixture extends AbstractFixture implements OrderedFixtureInterface
             ->setPaymentTime(new \DateTime("now"))
             ->setAmount(7000)
             ->setDescription("description_6")
+            ->setStatus(1);
+        $manager->persist($payment5);
+
+        $payment5 = new Payment();
+        $payment5->setFromAccount($manager->merge($this->getReference('account-3')))
+            ->setToAccount($manager->merge($this->getReference('account-1')))
+            ->setPaymentTime(new \DateTime("now"))
+            ->setAmount(700)
+            ->setDescription("description_7")
+            ->setStatus(1);
+        $manager->persist($payment5);
+
+        $payment5 = new Payment();
+        $payment5->setFromAccount($manager->merge($this->getReference('account-3')))
+            ->setToAccount($manager->merge($this->getReference('account-1')))
+            ->setPaymentTime(new \DateTime("now"))
+            ->setAmount(6000)
+            ->setDescription("description_8")
             ->setStatus(1);
         $manager->persist($payment5);
 

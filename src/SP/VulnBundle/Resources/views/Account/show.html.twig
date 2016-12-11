@@ -25,7 +25,8 @@
         {% for account in user.accounts %}
             <tr>
                 <td><a href="{{ path('transaction_show', {'accountNumber': account.accountNumber}) }}">{{ account.accountNumber|mask }}</a></td>
-                <td>{{ account.description }}</td>
+                {#using raw - xss#}
+                <td>{{ account.description|raw }}</td>
             </tr>
         {% endfor %}
         </tbody>

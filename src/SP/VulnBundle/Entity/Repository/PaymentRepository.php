@@ -15,19 +15,17 @@ class PaymentRepository extends \Doctrine\ORM\EntityRepository
     public function findByAccount($accountId)
     {
         return $this->findBy(array(
-           'fromAccount' => $accountId
+            'fromAccount' => $accountId
         ));
     }
 
     public function findByUser(User $user)
     {
-        return null;
-//        $accounts = $user->getAccounts();
-//
-//        return $this->createQueryBuilder('p')
-//            ->addSelect('p')
-//            ->innerJoin()
-//            ->where('p.fromAccount IN')
-
+        return $this->createQueryBuilder('p')
+            ->join('p.fromAccount', 'a')
+            ->where('a.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult();
     }
 }
