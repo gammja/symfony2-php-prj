@@ -11,7 +11,7 @@
         {% endfor %}
     {% endfor %}
     <div>
-        <a href="{{ path('account_new', {'userId': user.id}) }}" class="btn btn-primary" data-toggle="modal">Create new account</a>
+        <a href="{{ path('account_new') }}" class="btn btn-primary" data-toggle="modal">Create new account</a>
     </div>
     <br>
     <table class="table table-bordered table-striped table-hover">
@@ -25,7 +25,7 @@
         {% for account in user.accounts %}
             <tr>
                 <td><a href="{{ path('transaction_show', {'accountNumber': account.accountNumber}) }}">{{ account.accountNumber|mask }}</a></td>
-                {#using raw - xss#}
+                {#using raw - A3 XSS#}
                 <td>{{ account.description|raw }}</td>
             </tr>
         {% endfor %}

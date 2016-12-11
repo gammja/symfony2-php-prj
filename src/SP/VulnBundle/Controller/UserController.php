@@ -17,6 +17,7 @@ class UserController extends Controller
 {
     public function showAction()
     {
+//        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
         $users = $this->getDoctrine()
             ->getManager()
             ->getRepository('VulnBundle:User')
@@ -30,6 +31,7 @@ class UserController extends Controller
 
     public function newAction(Request $request)
     {
+//        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
         $form = $this->createForm(UserType::class);
         $form->handleRequest($request);
 
