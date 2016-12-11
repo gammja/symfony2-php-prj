@@ -69,20 +69,15 @@
             'placeholder': 'Description'
         }
     }) }}
-    {#role#}
-    {#<label for="role">Role:</label>#}
-    {#                <select name="role" id="role">
-                        <?php
-                    include('connect.php');
-
-                    $query = "SELECT id, name, is_default FROM `php-prj`.roles";
-                    $res = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        echo "<option value='" . $row['id'] . "'" . ($row['is_default'] ? " selected" : "") . ">"
-                        . strtoupper($row['name']) . "</option>";
-                        }
-                        ?>
-                    </select>#}
+    {{ form_row(form.role,
+    {
+        'requred': 'true',
+        'label': 'Role:',
+        'attr': {
+            'id': 'role',
+            'name': 'role'
+    }
+    }) }}
     {{ form_row(form.password,
     {
         'requred': 'true',

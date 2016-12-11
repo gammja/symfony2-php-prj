@@ -3,6 +3,7 @@
 namespace SP\VulnBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -20,7 +21,12 @@ class UserType extends AbstractType
         $builder->add('lastName', TextType::class);
         $builder->add('email', EmailType::class);
         $builder->add('description', TextareaType::class);
-//        $builder->add('role', EmailType::class);
+        $builder->add('role', ChoiceType::class, array(
+            'choices' => array(
+                'ROLE_USER' => 'User',
+                'ROLE_ADMIN' => 'Admin',
+            )
+        ));
         $builder->add('password', PasswordType::class);
         $builder->add('submit', SubmitType::class);
     }

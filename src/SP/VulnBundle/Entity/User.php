@@ -350,6 +350,10 @@ class User implements UserInterface, \Serializable
      */
     public function setRole($role)
     {
+        $mandatoryPrefix = 'ROLE_';
+        if(strpos($role, $mandatoryPrefix) === false){
+            $role = $mandatoryPrefix . $role;
+        }
         $this->role = $role;
 
         return $this;
@@ -362,6 +366,6 @@ class User implements UserInterface, \Serializable
      */
     public function getRole()
     {
-        return str_replace("ROLE_", "", $this->role);
+        return str_replace('ROLE_', '', $this->role);
     }
 }

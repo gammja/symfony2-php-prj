@@ -49,6 +49,7 @@ class UserController extends Controller
         }
 
         return $this->render('VulnBundle:User:new.html.twig', array(
+            'user' => $this->getUser(),
             'form' => $form->createView(),
         ));
     }
